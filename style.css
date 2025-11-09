@@ -164,19 +164,21 @@ span {
 .typing-text {
     font-size: 3.4rem;
     font-weight: 600;
-    min-width: 280px;
 }
 
 .typing-text span {
     position: relative;
+    display: inline-block;
 }
 
+/* ✅ Animated words */
 .typing-text span::before {
     content: "Web Developer";
     color: #b74b4b;
     animation: words 8s infinite;
 }
 
+/* ✅ Blinking cursor */
 .typing-text span::after {
     content: "";
     position: absolute;
@@ -186,6 +188,23 @@ span {
     right: -5px;
     animation: cursor .6s infinite;
 }
+
+/* ✅ cursor blinking */
+@keyframes cursor {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* ✅ word changing animation */
+@keyframes words {
+    0%, 20% { content: "Web Developer"; }
+    21%, 40% { content: "Developer"; }
+    41%, 60% { content: "Web Designer"; }
+    61%, 80% { content: "Programmer"; }
+    81%, 100% { content: "Freelancer"; }
+}
+
 
 
 /* ✅ Cursor blinking */
